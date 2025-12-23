@@ -75,6 +75,16 @@
 
   <div id="result" class="result"></div>
 </div>
-
+ 
+ <script>
+  function rollDice() {
+    const diceFaces = ["⚀","⚁","⚂","⚃","⚄","⚅"];
+    const randomNumber = Math.floor(Math.random() * 6);
+    
+    document.getElementById("dice").textContent = diceFaces[randomNumber];
+    document.getElementById("result").textContent =
+      "You rolled: " + (randomNumber + 1);
+  }
+</script>
 </body>
 </html>
