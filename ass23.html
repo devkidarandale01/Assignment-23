@@ -1,11 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>Dice Roller App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #43cea2, #185a9d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    background: white;
+    width: 90%;
+    max-width: 350px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  h2 {
+    margin: 0;
+    color: #333;
+  }
+
+  .dice {
+    font-size: 80px;
+  }
+
+  button {
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    background: #43cea2;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #2fa88a;
+  }
+
+  .result {
+    font-size: 18px;
+    font-weight: bold;
+    color: #185a9d;
+  }
+</style>
 </head>
+
 <body>
+
+<div class="container">
+  <h2>🎲 Dice Roller</h2>
+
+  <div id="dice" class="dice">🎲</div>
+
+  <button onclick="rollDice()">Roll Dice</button>
+
+  <div id="result" class="result"></div>
+</div>
+
+<script>
+  function rollDice() {
+    const diceFaces = ["⚀","⚁","⚂","⚃","⚄","⚅"];
+    const randomNumber = Math.floor(Math.random() * 6);
     
+    document.getElementById("dice").textContent = diceFaces[randomNumber];
+    document.getElementById("result").textContent =
+      "You rolled: " + (randomNumber + 1);
+  }
+</script>
+
 </body>
 </html>
